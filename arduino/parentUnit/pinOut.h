@@ -7,6 +7,3 @@ byte blueLedPin = 6;
 //softSerial pins
 #define TX_PIN 11
 #define RX_PIN 10 
-
-
-//tttest
