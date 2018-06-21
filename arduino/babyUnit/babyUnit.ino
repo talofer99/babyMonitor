@@ -1,18 +1,13 @@
+#include "pinOut.h"
 // software serial
 #include <SoftwareSerial.h>
-SoftwareSerial mySerial(10, 11); // RX, TX
-
+SoftwareSerial mySerial(RX_PIN, TX_PIN); // RX, TX
 
 #define pingEvrey 3000
 unsigned long lastPingAttemptTime;
 unsigned long lastSuccessPingTime;
 unsigned long totalPingsAttempt;
 unsigned long totalSuccessPings;
-
-byte redLedPin = 3;
-byte greenLedPin = 5;
-byte blueLedPin = 6;
-
 
 
 void setup() {
@@ -30,8 +25,6 @@ void setup() {
 
 
   testLeds();
-
-
 }
 
 

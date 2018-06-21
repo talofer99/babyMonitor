@@ -1,12 +1,12 @@
+#include "pinOut.h"
 // software serial
 #include <SoftwareSerial.h>
-SoftwareSerial mySerial(10, 11); // RX, TX
+SoftwareSerial mySerial(RX_PIN, TX_PIN); // RX, TX
 
 
 #define pingEvrey 3000
 unsigned long lastPingTime;
 unsigned long totalPings;
-
 
 void setup() {
   // Open serial communications and wait for port to open:
@@ -16,6 +16,11 @@ void setup() {
   // set the data rate for the SoftwareSerial port
   mySerial.begin(9600);
 
+  pinMode(redLedPin, OUTPUT);
+  pinMode(greenLedPin, OUTPUT);
+  pinMode(blueLedPin, OUTPUT);
+
+  testLeds();
 }
 
 
@@ -23,10 +28,25 @@ void loop() { // run over and over
   handleSerialCommunication();
 
 
-  if (lastPingTime + (2*pingEvrey) < millis()) {
+  if (lastPingTime + (2 * pingEvrey) < millis()) {
     Serial.println("Lost communication");
     delay(100);
   }
+}
+
+void testLeds() {
+  digitalWrite(redLedPin, HIGH);
+  delay(150);
+  digitalWrite(redLedPin, LOW);
+
+  digitalWrite(greenLedPin, HIGH);
+  delay(150);
+  digitalWrite(greenLedPin, LOW);
+
+  digitalWrite(blueLedPin, HIGH);
+  delay(150);
+  digitalWrite(blueLedPin, LOW);
+
 }
 
 
