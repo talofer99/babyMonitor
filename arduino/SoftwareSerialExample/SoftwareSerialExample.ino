@@ -22,7 +22,7 @@ void loop() { // run over and over
   if (Serial.available()) {
     mySerial.write(Serial.read());
   }
-  if (lastTransmition + 2000 < millis()) {
+  //if (lastTransmition + 2000 < millis()) {
   //    mySerial.println("Hello, world?");
   //  }
 }
