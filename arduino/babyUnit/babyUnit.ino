@@ -3,7 +3,7 @@
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(RX_PIN, TX_PIN); // RX, TX
 
-#define pingEvrey 3000
+#define pingEvrey 6000
 unsigned long lastPingAttemptTime;
 unsigned long lastSuccessPingTime;
 unsigned long totalPingsAttempt;
