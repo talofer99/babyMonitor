@@ -4,7 +4,7 @@
 SoftwareSerial mySerial(RX_PIN, TX_PIN); // RX, TX
 
 
-#define pingEvrey 3000
+#define pingEvrey 6000
 unsigned long lastPingTime;
 unsigned long totalPings;
 
@@ -60,6 +60,7 @@ void handleSerialCommunication() {
     switch (readSerial) {
       case 'P':
         Serial.println("Recived ping request");
+        delay(200);
         mySerial.print("P");
         lastPingTime = millis();
         totalPings++;
