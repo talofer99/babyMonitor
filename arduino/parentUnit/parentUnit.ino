@@ -23,9 +23,9 @@ void loop() { // run over and over
   handleSerialCommunication();
 
 
-  if (lastPingTime + pingEvrey < millis()) {
+  if (lastPingTime + (2*pingEvrey) < millis()) {
     Serial.println("Lost communication");
-    delay(100)
+    delay(100);
   }
 }
 
@@ -40,7 +40,7 @@ void handleSerialCommunication() {
     switch (readSerial) {
       case 'P':
         Serial.println("Recived ping request");
-        mySerial.write("P");
+        mySerial.print("P");
         lastPingTime = millis();
         totalPings++;
         break;

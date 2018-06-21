@@ -9,6 +9,7 @@ unsigned int sample;
 void setup() 
 {
    Serial.begin(9600);
+   analogReference(EXTERNAL);
 }
 
 
@@ -37,7 +38,7 @@ void loop()
       }
    }
    peakToPeak = signalMax - signalMin;  // max - min = peak-peak amplitude
-   double volts = (peakToPeak * 5.0) / 1024;  // convert to volts
+   double volts = (peakToPeak * 3.3) / 1024;  // convert to volts
 
    Serial.println(volts);
 }
