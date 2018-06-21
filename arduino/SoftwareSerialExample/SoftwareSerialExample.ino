@@ -22,7 +22,11 @@ void loop() { // run over and over
   if (Serial.available()) {
     mySerial.write(Serial.read());
   }
+<<<<<<< HEAD
 //  if (lastTransmition + 2000 < millis()) {
+=======
+  //if (lastTransmition + 2000 < millis()) {
+>>>>>>> 9b4f21f73cf3eff79ba043b743328131967c1350
   //    mySerial.println("Hello, world?");
 //    }
 }
