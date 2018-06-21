@@ -6,6 +6,8 @@ Adafruit Microphone Amplifier
 const int sampleWindow = 50; // Sample window width in mS (50 mS = 20Hz)
 unsigned int sample;
 
+#define MIC_PIN 0
+
 void setup() 
 {
    Serial.begin(9600);
@@ -24,7 +26,7 @@ void loop()
    // collect data for 50 mS
    while (millis() - startMillis < sampleWindow)
    {
-      sample = analogRead(0);
+      sample = analogRead(MIC_PIN);
       if (sample < 1024)  // toss out spurious readings
       {
          if (sample > signalMax)
