@@ -4,7 +4,7 @@ SoftwareSerial mySerial(10, 11); // RX, TX
 
 void setup() {
   // Open serial communications and wait for port to open:
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("System started");
 
   // set the data rate for the SoftwareSerial port
@@ -22,7 +22,7 @@ void loop() { // run over and over
   if (Serial.available()) {
     mySerial.write(Serial.read());
   }
-  //  if (lastTransmition + 2000 < millis()) {
+  if (lastTransmition + 2000 < millis()) {
   //    mySerial.println("Hello, world?");
   //  }
 }
