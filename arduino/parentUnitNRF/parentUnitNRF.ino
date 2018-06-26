@@ -2,13 +2,13 @@
 #include "RF24.h"
 
 /* Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 7 & 8 */
-RF24 radio(7, 8);
+RF24 radio(10, 5);
 /**********************************************************/
 byte addresses[][6] = {"1Node", "2Node"};
 
 //RGB LED PINS
 byte redLedPin = 3;
-byte greenLedPin = 5;
+byte greenLedPin = 9;
 byte blueLedPin = 6;
 
 void setup() {
@@ -28,8 +28,8 @@ void setup() {
   radio.setPALevel(RF24_PA_LOW);
 
 
-  radio.openWritingPipe(addresses[0]);
-  radio.openReadingPipe(1, addresses[1]);
+  radio.openWritingPipe(addresses[1]);
+  radio.openReadingPipe(1, addresses[0]);
 
 
   // Start the radio listening for data
